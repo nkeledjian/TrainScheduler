@@ -70,12 +70,13 @@ dataRef.ref().on("child_added", function(childSnapshot) {
     l(freq);
     l(nextArriv);
 
+    // render new table rows and table data
     var newRow = $("<tr>").append(
         $("<td>").text(trainName),
         $("<td>").text(dest),
         $("<td>").text(freq),
         $("<td>").text(nextArriv),
     );
-
+    // append the newRow with user input variables to tbody of id train-table
     $('#train-table > tbody').append(newRow);
 });
