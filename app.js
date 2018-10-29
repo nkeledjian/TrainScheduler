@@ -22,7 +22,7 @@ $("#add-train").on("click", function(event) {
 
     event.preventDefault();
 
-    TrainName = $("#inputName").val();
+    TrainName = $("#inputTrainName").val();
     Dest = $("#inputDest").val();
     Freq = $("#inputFreq").val();
     NextArriv = $('#inputNextArriv').val();
