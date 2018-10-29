@@ -20,8 +20,8 @@
           <tr>
             <th>Train Name</th>
             <th>Destination</th>
-            <th>Frequency</th>
-            <th>Next Arrival</th>
+            <th>First Train Time(HH:mm - military time)</th>
+            <th>Frequency(min)</th>
           </tr>
         </thead>
         <!-- newTrain entries and minutes away rendered in tbody -->
@@ -41,12 +41,12 @@
               <input class="u-full-width" type="destination" id="inputDest">
           </div>
           <div class="twelve columns">
-              <label for="inputFreq">Frequency</label>
-              <input class="u-full-width" type="frequency" id="inputFreq">
+              <label for="inputNextArriv">First Train Time (HH:mm - military time)</label>
+              <input class="u-full-width" type="first time" id="inputFirstTime">
           </div>
           <div class="twelve columns">
-              <label for="inputNextArriv">Next Arrival</label>
-              <input class="u-full-width" type="next arrival" id="inputNextArriv">
+              <label for="inputFreq">Frequency(min)</label>
+              <input class="u-full-width" type="frequency" id="inputFreq">
           </div>
         </div>
         <input class="button-primary" type="submit" id="add-train-btn">

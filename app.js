@@ -24,16 +24,15 @@ $("#add-train-btn").on("click", function(event) {
     // grabs user input
     trainName = $("#inputTrainName").val().trim();
     dest = $("#inputDest").val().trim();
-    freq = $("#inputFreq").val().trim();
-    nextArriv = $('#inputNextArriv').val().trim();
+    first = $("#inputFirstTime").val().trim();
+    freq = $('#inputFreq').val().trim();
     // MinAway = $("#inputMinAway").val().trim();
     // Store the temporary objects in a variable
     newTrain = {
             train: trainName,
             dest: dest,
+            first: first,
             freq: freq,
-            next: nextArriv,
-            // MinAway: MinAway,
         };
 
     alert("New train details successfully added");
@@ -42,15 +41,15 @@ $("#add-train-btn").on("click", function(event) {
     // Console logging local object data
     l(newTrain.train);
     l(newTrain.dest);
+    l(newTrain.first);
     l(newTrain.freq);
-    l(newTrain.next);
     // l(newTrain.MinAway);
 
     // Clears input field for next new train entry
     $("#inputTrainName").val("");
     $("#inputDest").val("");
+    $("#inputFirstTime").val("");
     $("#inputFreq").val("");
-    $("#inputNextArriv").val("");
 });
 
 // function to handle appending user's entry's to page
@@ -61,21 +60,43 @@ dataRef.ref().on("child_added", function(childSnapshot) {
     // store memory in these variables
     var trainName = childSnapshot.val().train;
     var dest = childSnapshot.val().dest;
+    var first = childSnapshot.val().first;
     var freq = childSnapshot.val().freq;
-    var nextArriv = childSnapshot.val().next;
 
     // console log for good measure
     l(trainName);
     l(dest);
+    l(first);
     l(freq);
-    l(nextArriv);
+
+    // sorting first train time and time of arrival
+    var tFreq = 3;
+
+    var firstTimeConvert = moment(first, "HH:mm").subtract(1, "years");
+    l(firstTimeConvert);
+
+    var currentTime = moment();
+    l("Current time: ", moment(currentTime).format("HH:mm"));
+
+    var diffTime = moment().diff(moment(firstTimeConvert), "minutes");
+
+    var tRemainder = diffTime % tFreq;
+    l(tRemainder);
+
+    var tMinTillTrain = tFreq - tRemainder;
+    l("MINUTES TILL TRAIN: " + tMinTillTrain);
+
+    var nextArriv = moment().add(tMinTillTrain, "minutes");
+    l("ARRIVAL TIME: " + moment(nextArriv).format("hh:mm"));
 
     // render new table rows and table data
     var newRow = $("<tr>").append(
         $("<td>").text(trainName),
         $("<td>").text(dest),
+        $("<td>").text(first),
         $("<td>").text(freq),
         $("<td>").text(nextArriv),
+        $("<td>").text(tMintillTrain),
     );
     // append the newRow with user input variables to tbody of id train-table
     $('#train-table > tbody').append(newRow);
