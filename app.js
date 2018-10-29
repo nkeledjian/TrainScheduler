@@ -11,28 +11,28 @@ var config = {
 // store database in dataRef
 var dataRef = firebase.database();  
 
-var TrainName = "";
-var Dest = "";
-var Freq = "";
-var NextArriv = "";
-var MinAway = "";
+var trainName = "";
+var dest = "";
+var freq = "";
+var nextArriv = "";
+var minAway = "";
 var l = console.log;
 // point to HTML handling input
 $("#add-train-btn").on("click", function(event) {
 
     event.preventDefault();
     // grabs user input
-    TrainName = $("#inputTrainName").val().trim();
-    Dest = $("#inputDest").val().trim();
-    Freq = $("#inputFreq").val().trim();
-    NextArriv = $('#inputNextArriv').val().trim();
+    trainName = $("#inputTrainName").val().trim();
+    dest = $("#inputDest").val().trim();
+    freq = $("#inputFreq").val().trim();
+    nextArriv = $('#inputNextArriv').val().trim();
     // MinAway = $("#inputMinAway").val().trim();
     // Store the temporary objects in a variable
     newTrain = {
-            Train: TrainName,
-            Dest: Dest,
-            Freq: Freq,
-            Next: NextArriv,
+            train: trainName,
+            dest: dest,
+            freq: freq,
+            next: nextArriv,
             // MinAway: MinAway,
         };
 
@@ -40,13 +40,13 @@ $("#add-train-btn").on("click", function(event) {
     // push newTrain var to firebase database
     dataRef.ref().push(newTrain);
     // Console logging local object data
-    l(newTrain.Train);
-    l(newTrain.Dest);
-    l(newTrain.Freq);
-    l(newTrain.Next);
+    l(newTrain.train);
+    l(newTrain.dest);
+    l(newTrain.freq);
+    l(newTrain.next);
     // l(newTrain.MinAway);
 
-    // Clears input field for next new Train entry
+    // Clears input field for next new train entry
     $("#inputTrainName").val("");
     $("#inputDest").val("");
     $("#inputFreq").val("");
@@ -54,6 +54,28 @@ $("#add-train-btn").on("click", function(event) {
 });
 
 // function to handle appending user's entry's to page
-database.ref().on("child_added", function(childSnapshot) { 
-    
+dataRef.ref().on("child_added", function(childSnapshot) {
+    // initial console log 
+    l(childSnapshot.val());
+
+    // store memory in these variables
+    var trainName = childSnapshot.val().train;
+    var dest = childSnapshot.val().dest;
+    var freq = childSnapshot.val().freq;
+    var nextArriv = childSnapshot.val().next;
+
+    // console log for good measure
+    l(trainName);
+    l(dest);
+    l(freq);
+    l(nextArriv);
+
+    var newRow = $("<tr>").append(
+        $("<td>").text(trainName),
+        $("<td>").text(dest),
+        $("<td>").text(freq),
+        $("<td>").text(nextArriv),
+    );
+
+    $('#train-table > tbody').append(newRow);
 });
