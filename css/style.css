@@ -6,6 +6,14 @@
     background-color: rgb(61, 148, 177);
     padding: 10px 0 10px 0;
 }
+.top-border {
+    border-top: 2px solid black;
+}
+
+h3 {
+    margin-left: 2px;
+    margin-bottom: -4px;
+}
 
 thead, table {
     border-bottom: 5px solid rgb(2, 20, 26);
@@ -13,6 +21,15 @@ thead, table {
 
 th, td {
     border: 1px solid black;
+}
+
+label {
+    margin-left: 10px;
+}
+
+input {
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 /* Controls fade in animation for information heading and table */
@@ -24,7 +41,18 @@ th, td {
     animation-name: fadeIn;
     animation-duration: 4s;
 }
-.row {
+
+#schedule-label {
+    border: 1px solid black;
+    border-top: 10px solid black;
+    animation-name: fadeIn;
+    animation-duration: 4s;
+}
+
+form {
+    margin: 2px 2px 2px 2px;
+    border: 1px solid black;
+    border-top: 10px solid black;
     animation-name: fadeIn;
     animation-duration: 4s;
 }
