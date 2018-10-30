@@ -68,14 +68,12 @@ dataRef.ref().on("child_added", function(childSnapshot) {
     var freq = childSnapshot.val().freq;
 
     // console log for good measure
-    l(trainName);
-    l(dest);
-    l(first);
-    l(freq);
+    l("trainName: ", trainName);
+    l("Destination: ", dest);
+    l("First Train Time: ", first);
+    l("Frequency: ", freq);
 
     // sorting first train time and time of arrival
-    var tFreq = 3;
-
     var firstTimeConvert = moment(first, "HH:mm").subtract(1, "years");
     l(firstTimeConvert);
 
@@ -84,14 +82,14 @@ dataRef.ref().on("child_added", function(childSnapshot) {
 
     var diffTime = moment().diff(moment(firstTimeConvert), "minutes");
 
-    var tRemainder = diffTime % tFreq;
+    var tRemainder = diffTime % freq;
     l(tRemainder);
 
-    var tMinTillTrain = tFreq - tRemainder;
+    var tMinTillTrain = freq - tRemainder;
     l("MINUTES TILL TRAIN: " + tMinTillTrain);
 
     var nextArriv = moment().add(tMinTillTrain, "minutes");
-    // nextArrival = moment(nextArriv).format("hh:mm");
+    nextArrival = moment(nextArriv).format("hh:mm");
 
     // render new table rows and table data
     var newRow = $("<tr>").append(
@@ -99,7 +97,7 @@ dataRef.ref().on("child_added", function(childSnapshot) {
         $("<td>").text(dest),
         $("<td>").text(first),
         $("<td>").text(freq),
-        $("<td>").text(nextArriv),
+        $("<td>").text(nextArrival),
         $("<td>").text(tMinTillTrain),
     );
     // append the newRow with user input variables to tbody of id train-table
