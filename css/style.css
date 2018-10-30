@@ -1,6 +1,5 @@
 #showTime {
     position: relative;
-    min-width: 100%;
     text-align: center;
     font-size: 40px;
     font-weight: 600;
@@ -18,7 +17,7 @@ th, td {
 
 /* Controls fade in animation for information heading and table */
 @keyframes fadeIn {
-    from {opacity: 0; background-color: rgba(113, 113, 235, 0.384);}
+    from {opacity: 0; background-color: rgba(166, 166, 245, 0.384);}
     to {opacity: 1; }
 }
 #train-table {

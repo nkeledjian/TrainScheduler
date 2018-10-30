@@ -16,45 +16,47 @@
 </head>
     
 <body>
-  <div id="showTime">Time: <span id="currentTime"></span></div>
-    <table class="u-full-width" id="train-table">
-        <thead>
-          <tr>
-            <th>Train Name</th>
-            <th>Destination</th>
-            <th>First Train Time(HH:mm - military time)</th>
-            <th>Frequency(min)</th>
-            <th>Next Arrival</th>
-            <th>Minutes Away</th>
-          </tr>
-        </thead>
-        <!-- newTrain entries and minutes away rendered in tbody -->
-        <tbody>
-        </tbody>
-      </table>  
-    
-    <div class="container">
-      <form>
-        <div class="row">
-          <div class="twelve columns">
-            <label for="inputTrainName">Train Name</label>
-            <input class="u-full-width" type="train"  id="inputTrainName">
-          </div>
-          <div class="twelve columns">
-              <label for="inputDest">Destination</label>
-              <input class="u-full-width" type="destination" id="inputDest">
-          </div>
-          <div class="twelve columns">
-              <label for="inputNextArriv">First Train Time (HH:mm - military time)</label>
-              <input class="u-full-width" type="first time" id="inputFirstTime">
-          </div>
-          <div class="twelve columns">
-              <label for="inputFreq">Frequency(min)</label>
-              <input class="u-full-width" type="frequency" id="inputFreq">
-          </div>
+  <div class="container">
+    <div class="row">
+      <div class="u-full-width" id="showTime">Time: <span id="currentTime"></span></div>
+      <table class="u-full-width" id="train-table">
+          <thead>
+            <tr>
+              <th>Train Name</th>
+              <th>Destination</th>
+              <th>First Train Time(HH:mm - military time)</th>
+              <th>Frequency(min)</th>
+              <th>Next Arrival</th>
+              <th>Minutes Away</th>
+            </tr>
+          </thead>
+          <!-- newTrain entries and minutes away rendered in tbody -->
+          <tbody>
+          </tbody>
+        </table>  
+    </div>
+    <!-- Begin Info Timesheet for trains -->
+    <form>
+      <div class="row">
+        <div class="twelve columns">
+          <label for="inputTrainName">Train Name</label>
+          <input class="u-full-width" type="train"  id="inputTrainName">
         </div>
-        <input class="button-primary" type="submit" id="add-train-btn">
-      </form>
+        <div class="twelve columns">
+            <label for="inputDest">Destination</label>
+            <input class="u-full-width" type="destination" id="inputDest">
+        </div>
+        <div class="twelve columns">
+            <label for="inputNextArriv">First Train Time (HH:mm - military time)</label>
+            <input class="u-full-width" type="first time" id="inputFirstTime">
+        </div>
+        <div class="twelve columns">
+            <label for="inputFreq">Frequency(min)</label>
+            <input class="u-full-width" type="frequency" id="inputFreq">
+        </div>
+      </div>
+      <input class="button-primary" type="submit" id="add-train-btn">
+    </form>
       
       <!-- SKELETON: Always wrap checkbox and radio inputs in a label and use a <span class="label-body"> inside of it -->
       <!-- Note: The class .u-full-width is just a utility class shorthand for width: 100% -->
