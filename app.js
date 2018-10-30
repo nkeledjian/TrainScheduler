@@ -17,6 +17,10 @@ var freq = "";
 var nextArriv = "";
 var minAway = "";
 var l = console.log;
+var curTime = moment();
+
+$("#currentTime").text(curTime.format("HH:mm"));
+
 // point to HTML handling input
 $("#add-train-btn").on("click", function(event) {
 
@@ -87,7 +91,7 @@ dataRef.ref().on("child_added", function(childSnapshot) {
     l("MINUTES TILL TRAIN: " + tMinTillTrain);
 
     var nextArriv = moment().add(tMinTillTrain, "minutes");
-    nextArrival = moment(nextArriv).format("hh:mm");
+    // nextArrival = moment(nextArriv).format("hh:mm");
 
     // render new table rows and table data
     var newRow = $("<tr>").append(
@@ -95,7 +99,7 @@ dataRef.ref().on("child_added", function(childSnapshot) {
         $("<td>").text(dest),
         $("<td>").text(first),
         $("<td>").text(freq),
-        $("<td>").text(nextArrival),
+        $("<td>").text(nextArriv),
         $("<td>").text(tMinTillTrain),
     );
     // append the newRow with user input variables to tbody of id train-table
