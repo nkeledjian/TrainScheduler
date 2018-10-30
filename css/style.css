@@ -5,3 +5,12 @@
     background-color: rgb(61, 148, 177);
     padding: 10px 0 10px 0;
 }
+
+thead, table {
+    border-bottom: 5px solid rgb(2, 20, 26);
+}
+
+th, td {
+    border: 1px solid black;
+}
+
