@@ -17,7 +17,7 @@
     
 <body>
   <div class="container">
-    <div class="row">
+    <div class="row background">
         <div class="u-full-width" id="showTime">Time: <span id="currentTime"></span></div>
         <table class="u-full-width" id="train-table">
             <thead>
@@ -39,7 +39,7 @@
         </table>
     </div>
     <!-- Begin Info Timesheet for trains -->
-    <form>
+    <form class="background">
       <div class="row">
         <div class="twelve columns">
           <h3>Add a Train</h3>
@@ -60,8 +60,9 @@
             <label for="inputFreq">Frequency(min)</label>
             <input class="u-full-width" type="frequency" id="inputFreq">
         </div>
+        <input class="button-primary" type="submit" id="add-train-btn">
       </div>
-      <input class="button-primary" type="submit" id="add-train-btn">
+      
     </form>
       
       <!-- SKELETON: Always wrap checkbox and radio inputs in a label and use a <span class="label-body"> inside of it -->
