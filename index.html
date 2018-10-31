@@ -18,7 +18,10 @@
 <body>
   <div class="container">
     <div class="row background">
+      <div class="twelve columns">
         <div class="u-full-width" id="showTime">Time: <span id="currentTime"></span></div>
+      </div>
+      <div class="twelve columns">
         <table class="u-full-width" id="train-table">
             <thead>
               <div id="schedule-label">
@@ -33,41 +36,42 @@
                 <th>Minutes Away</th>
               </tr>
             </thead>
-            <!-- newTrain entries and minutes away rendered in tbody -->
+            <!-- newTrain entries rendered in tbody below -->
             <tbody>
             </tbody>
         </table>
+      </div>  
     </div>
     <!-- Begin Info Timesheet for trains -->
-    <form class="background">
-      <div class="row">
-        <div class="twelve columns">
-          <h3>Add a Train</h3>
-        </div>
-        <div class="twelve columns top-border">
-          <label for="inputTrainName">Train Name</label>
-          <input class="u-full-width" type="train"  id="inputTrainName">
-        </div>
-        <div class="twelve columns">
-            <label for="inputDest">Destination</label>
-            <input class="u-full-width" type="destination" id="inputDest">
-        </div>
-        <div class="twelve columns">
-            <label for="inputNextArriv">First Train Time (HH:mm - military time)</label>
-            <input class="u-full-width" type="first time" id="inputFirstTime">
-        </div>
-        <div class="twelve columns">
-            <label for="inputFreq">Frequency(min)</label>
-            <input class="u-full-width" type="frequency" id="inputFreq">
-        </div>
-        <input class="button-primary" type="submit" id="add-train-btn">
+    <div class="row background">
+      <div class="twelve columns">
+        <form>
+          <div class="twelve columns">
+            <h3>Add a Train</h3>
+          </div>
+          <div class="twelve columns top-border">
+            <label for="inputTrainName">Train Name</label>
+            <input class="u-full-width" type="train"  id="inputTrainName">
+          </div>
+          <div class="twelve columns">
+              <label for="inputDest">Destination</label>
+              <input class="u-full-width" type="destination" id="inputDest">
+          </div>
+          <div class="twelve columns">
+              <label for="inputNextArriv">First Train Time (HH:mm - military time)</label>
+              <input class="u-full-width" type="first time" id="inputFirstTime">
+          </div>
+          <div class="twelve columns">
+              <label for="inputFreq">Frequency(min)</label>
+              <input class="u-full-width" type="frequency" id="inputFreq">
+          </div>
+            <input class="button-primary" type="submit" id="add-train-btn">
+        </form>
       </div>
-      
-    </form>
-      
+    </div>  
       <!-- SKELETON: Always wrap checkbox and radio inputs in a label and use a <span class="label-body"> inside of it -->
       <!-- Note: The class .u-full-width is just a utility class shorthand for width: 100% -->
-    </div>
+  </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
 </body>
