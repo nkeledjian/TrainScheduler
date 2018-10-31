@@ -23,8 +23,14 @@ h3 {
     margin-bottom: -4px;
 }
 
-thead, table {
+thead {
     border-bottom: 5px solid rgb(2, 20, 26);
+    position: relative;
+}
+
+table {
+    border-bottom: 5px solid rgb(2, 20, 26);
+    position: relative;
 }
 
 th, td {
