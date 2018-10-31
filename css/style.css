@@ -1,6 +1,10 @@
 body {
     background-image: url("../images/station.jpg");
     background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 #showTime {
     position: relative;
