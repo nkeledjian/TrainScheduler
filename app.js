@@ -59,7 +59,7 @@ $("#add-train-btn").on("click", function(event) {
 // function to handle appending user's entry's to page
 dataRef.ref().on("child_added", function(childSnapshot) {
     // initial console log 
-    l(childSnapshot.val());
+    l("childSnapshot", childSnapshot.val());
 
     // store memory in these variables
     var trainName = childSnapshot.val().train;
