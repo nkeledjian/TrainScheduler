@@ -78,19 +78,24 @@ dataRef.ref().on("child_added", function(childSnapshot) {
     var firstTimeConvert = moment(first, "HH:mm").subtract(1, "years");
     l(firstTimeConvert);
 
+    // the current time, of course!
     var currentTime = moment();
     l("Current time: ", moment(currentTime).format("HH:mm"));
 
+    // time difference between first train arrival time and current time
     var diffTime = moment().diff(moment(firstTimeConvert), "minutes");
 
+    // now compare time diff between current time and arrival time with frequency of train arrival
     var tRemainder = diffTime % freq;
     l(tRemainder);
 
+    // finally, get the difference between freq of train arrival and time remaining for train to arrive
     var tMinTillTrain = freq - tRemainder;
     l("MINUTES TILL TRAIN: " + tMinTillTrain);
 
+    // and now format tMinTillTrain into minutes and then hh:mm format
     var nextArriv = moment().add(tMinTillTrain, "minutes");
-    nextArrival = moment(nextArriv).format("hh:mm");
+    nextArrival = moment(nextArriv).format("HH:mm");
 
     // render new table rows and table data
     var newRow = $("<tr>").append(

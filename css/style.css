@@ -57,8 +57,8 @@ input {
 
 /* Controls fade in animation for information heading and table */
 @keyframes fadeIn {
-    from {opacity: 0; background-color: rgba(166, 166, 245, 0.384);}
-    to {opacity: 0.637; }
+    from {opacity: 0; background-color: rgba(84, 247, 239, 0.582);}
+    to {opacity: 1; }
 }
 #train-table {
     animation-name: fadeIn;
@@ -66,8 +66,6 @@ input {
 }
 
 #schedule-label {
-    border: 1px solid black;
-    border-top: 10px solid black;
     animation-name: fadeIn;
     animation-duration: 4s;
 }
