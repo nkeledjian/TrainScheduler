@@ -74,6 +74,7 @@ dataRef.ref().on("child_added", function(childSnapshot) {
     l("Frequency: ", freq);
 
     // sorting first train time and time of arrival
+    // set time to last years date to ensure time entered is before the target arrival time
     var firstTimeConvert = moment(first, "HH:mm").subtract(1, "years");
     l(firstTimeConvert);
 
