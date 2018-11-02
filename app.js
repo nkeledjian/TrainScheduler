@@ -61,19 +61,19 @@ dataRef.ref().on("child_added", function(childSnapshot) {
     // initial console log 
     l("childSnapshot", childSnapshot.val());
 
-    // store memory in these variables
+    // variables to store childSnapshots into memory
     var trainName = childSnapshot.val().train;
     var dest = childSnapshot.val().dest;
     var first = childSnapshot.val().first;
     var freq = childSnapshot.val().freq;
 
-    // console log for good measure
+    // console log above vars for good measure
     l("trainName: ", trainName);
     l("Destination: ", dest);
     l("First Train Time: ", first);
     l("Frequency: ", freq);
 
-    // sorting first train time and time of arrival
+    // ---Sorting first train time (HH:mm) and time of arrival---
     // set time to last years date to ensure time entered is before the target arrival time
     var firstTimeConvert = moment(first, "HH:mm").subtract(1, "years");
     l(firstTimeConvert);
@@ -82,10 +82,10 @@ dataRef.ref().on("child_added", function(childSnapshot) {
     var currentTime = moment();
     l("Current time: ", moment(currentTime).format("HH:mm"));
 
-    // time difference between first train arrival time and current time
+    // difference in minutes between first train arrival and current time
     var diffTime = moment().diff(moment(firstTimeConvert), "minutes");
 
-    // now compare time diff between current time and arrival time with frequency of train arrival
+    // determine remainder between current time and arrival time with user's inputted train frequency (in minutes)
     var tRemainder = diffTime % freq;
     l(tRemainder);
 
@@ -93,11 +93,11 @@ dataRef.ref().on("child_added", function(childSnapshot) {
     var tMinTillTrain = freq - tRemainder;
     l("MINUTES TILL TRAIN: " + tMinTillTrain);
 
-    // and now format tMinTillTrain into minutes and then hh:mm format
+    // and now format tMinTillTrain into minutes and then format to display in military time
     var nextArriv = moment().add(tMinTillTrain, "minutes");
     nextArrival = moment(nextArriv).format("HH:mm");
 
-    // render new table rows and table data
+    // render user inputted data and new data
     var newRow = $("<tr>").append(
         $("<td>").text(trainName),
         $("<td>").text(dest),
@@ -106,6 +106,6 @@ dataRef.ref().on("child_added", function(childSnapshot) {
         $("<td>").text(nextArrival),
         $("<td>").text(tMinTillTrain),
     );
-    // append the newRow with user input variables to tbody of id train-table
+    // append newRow to the DOM
     $('#train-table > tbody').append(newRow);
 });

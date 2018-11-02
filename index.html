@@ -7,7 +7,7 @@
     <title>Train Scheduler</title>
     <!-- FIREBASE -->
     <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
-    <!-- CSS ––––––––––––––––––––––-––––––– -->
+    <!-- CSS (WITH SKELETON BOILERPLATE)-––––––– -->
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/skeleton.css">
     <link rel="stylesheet" href="css/style.css">
@@ -25,14 +25,14 @@
           <h3>Train Schedule</h3>
         </div>
     </div>
-    <div class="row background clearfix">
+    <div class="row background clearfix fadeFX">
         <div class="twelve columns">
           <table class="u-full-width" id="train-table">
               <thead>
                 <tr>
                   <th>Train Name</th>
                   <th>Destination</th>
-                  <th>First Train Time(HH:mm - military time)</th>
+                  <th>First Train Time</th>
                   <th>Frequency(min)</th>
                   <th>Next Arrival</th>
                   <th>Minutes Away</th>
@@ -60,7 +60,7 @@
               <input class="u-full-width" type="destination" id="inputDest">
           </div>
           <div class="twelve columns">
-              <label for="inputNextArriv">First Train Time (HH:mm - military time)</label>
+              <label for="inputNextArriv">Arrival Time (use military [HH:MM])</label>
               <input class="u-full-width" type="first time" id="inputFirstTime">
           </div>
           <div class="twelve columns">

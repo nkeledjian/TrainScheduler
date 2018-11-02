@@ -13,6 +13,7 @@ body {
     font-weight: 600;
     background-color: rgb(61, 148, 177);
     padding: 10px 0 10px 0;
+    border-bottom: 4px solid black;
 }
 .top-border {
     border-top: 2px solid black;
@@ -50,6 +51,9 @@ input {
     margin-left: 0px;
     margin-right: 0px;
 }
+.btn {
+    color: rgb(12, 44, 54);
+}
 
 .background {
     background-color: rgba(255, 255, 255, 0.637);
@@ -60,12 +64,7 @@ input {
     from {opacity: 0; background-color: rgba(84, 247, 239, 0.582);}
     to {opacity: 1; }
 }
-#train-table {
-    animation-name: fadeIn;
-    animation-duration: 4s;
-}
-
-#schedule-label {
+.fadeFX {
     animation-name: fadeIn;
     animation-duration: 4s;
 }
