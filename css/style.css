@@ -11,7 +11,7 @@ body {
     text-align: center;
     font-size: 40px;
     font-weight: 600;
-    background-color: rgb(61, 148, 177);
+    background-color: rgba(61, 148, 177, 0.726);
     padding: 10px 0 10px 0;
     border-bottom: 4px solid black;
 }
