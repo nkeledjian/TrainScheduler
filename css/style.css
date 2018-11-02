@@ -35,7 +35,7 @@ table {
 }
 
 .clearfix {
-overflow: auto;
+    overflow: auto;
 }
 
 th, td {
