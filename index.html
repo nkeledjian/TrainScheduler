@@ -17,11 +17,27 @@
     
 <body>
   <div class="container">
-    <div class="row u-full-width" id="showTime">
+    <!-- <div class="row u-full-width" id="showTime">
         <div class="twelve columns">
           <div><span id="currentTime"></span></div>
         </div>
-        <div class="u-full-width" id="schedule-label">
+    </div> -->
+    <!-- <div class="container"> -->
+      <div class="row">
+          <div class="twelve columns">
+            <div class="clock">
+              <div class="clock-face">
+                <div class="hand hour-hand"></div>
+                <div class="hand min-hand"></div>
+                <div class="hand second-hand"></div>
+              </div>
+            </div>
+          </div>
+      </div>
+    <!-- </div> -->
+
+    <div class="row">
+        <div class="twelve columns u-full-width" id="showTime">
           <h3>Train Schedule</h3>
         </div>
     </div>
@@ -76,5 +92,18 @@
   </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
+    <script>
+      const secondHand = document.querySelector('.second-hand');
+
+      function setDate() {
+        const now = new Date();
+        const seconds = now.getSeconds();
+        const secondsDegrees = ((seconds / 60) * 360);
+        secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+        console.log(seconds);
+      }
+
+      setInterval(setDate, 1000);
+    </script>
 </body>
 </html>

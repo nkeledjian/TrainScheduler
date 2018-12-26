@@ -6,6 +6,23 @@ body {
     -o-background-size: cover;
     background-size: cover;
 }
+/* CLOCK CSS */
+/* .clock {
+
+} */
+
+.hand {
+    width: 50%;
+    height: 6px;
+    background: black;
+    position: absolute;
+    top: 50%;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+    transition: 0.05s;
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1)
+}
+
 #showTime {
     position: relative;
     text-align: center;
@@ -59,6 +76,7 @@ input {
 .background {
     background-color: rgba(255, 255, 255, 0.637);
 }
+
 
 /* Controls fade in animation for information heading and table */
 @keyframes fadeIn {
