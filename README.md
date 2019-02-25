@@ -1,7 +1,9 @@
 # TrainScheduler
 A train scheduling application built with Firebase.
-Users can enter train names, arrival times and frequency.
-The webpage returns information on the next train arrival.
+
+Enter a train name, an arrival time and frequency of arrival.
+
+Click Submit and the webpage will provide a confirmation window and return information on the next train arrival.
 
 ![alt text](https://media.giphy.com/media/4MWlwwqIRWRJnMhCgi/giphy.gif)
 
