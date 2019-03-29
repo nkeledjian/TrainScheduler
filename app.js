@@ -6,10 +6,13 @@ var config = {
     projectId: "trainscheduler-ee02e",
     storageBucket: "trainscheduler-ee02e.appspot.com",
     messagingSenderId: "10517861927"
-  };
-  firebase.initializeApp(config);
+};
+
+// initial firebase configuration
+firebase.initializeApp(config);
+
 // store database in db
-var db = firebase.database();  
+var db = firebase.database();
 
 var trainName = "";
 var dest = "";
