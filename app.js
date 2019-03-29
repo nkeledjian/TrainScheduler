@@ -8,8 +8,8 @@ var config = {
     messagingSenderId: "10517861927"
   };
   firebase.initializeApp(config);
-// store database in dataRef
-var dataRef = firebase.database();  
+// store database in db
+var db = firebase.database();  
 
 var trainName = "";
 var dest = "";
@@ -41,12 +41,12 @@ $("#add-train-btn").on("click", function(event) {
 
     alert("New train details successfully added");
     // push newTrain var to firebase database
-    dataRef.ref().push(newTrain);
+    db.ref().push(newTrain);
     // Console logging local object data
-    l(newTrain.train);
-    l(newTrain.dest);
-    l(newTrain.first);
-    l(newTrain.freq);
+    // l(newTrain.train);
+    // l(newTrain.dest);
+    // l(newTrain.first);
+    // l(newTrain.freq);
     // l(newTrain.MinAway);
 
     // Clears input field for next new train entry
@@ -57,7 +57,7 @@ $("#add-train-btn").on("click", function(event) {
 });
 
 // function to handle appending user's entry's to page
-dataRef.ref().on("child_added", function(childSnapshot) {
+db.ref().on("child_added", function(childSnapshot) {
     // initial console log 
     l("childSnapshot", childSnapshot.val());
 
@@ -67,35 +67,34 @@ dataRef.ref().on("child_added", function(childSnapshot) {
     var first = childSnapshot.val().first;
     var freq = childSnapshot.val().freq;
 
-    // console log above vars for good measure
-    l("trainName: ", trainName);
-    l("Destination: ", dest);
-    l("First Train Time: ", first);
-    l("Frequency: ", freq);
+    // l("trainName: ", trainName);
+    // l("Destination: ", dest);
+    // l("First Train Time: ", first);
+    // l("Frequency: ", freq);
 
     // ---Sorting first train time (HH:mm) and time of arrival---
     // set time to last years date to ensure time entered is before the target arrival time
     var firstTimeConvert = moment(first, "HH:mm").subtract(1, "years");
-    l(firstTimeConvert);
-
-    // the current time, of course!
-    var currentTime = moment();
-    l("Current time: ", moment(currentTime).format("HH:mm"));
+    // l(firstTimeConvert);
 
     // difference in minutes between first train arrival and current time
     var diffTime = moment().diff(moment(firstTimeConvert), "minutes");
 
     // determine remainder between current time and arrival time with user's inputted train frequency (in minutes)
     var tRemainder = diffTime % freq;
-    l(tRemainder);
+    // l(tRemainder);
 
     // finally, get the difference between freq of train arrival and time remaining for train to arrive
     var tMinTillTrain = freq - tRemainder;
-    l("MINUTES TILL TRAIN: " + tMinTillTrain);
+    // l("MINUTES TILL TRAIN: " + tMinTillTrain);
 
     // and now format tMinTillTrain into minutes and then format to display in military time
     var nextArriv = moment().add(tMinTillTrain, "minutes");
     nextArrival = moment(nextArriv).format("HH:mm");
+
+    // childSnapshot for row in question
+    var childKey = childSnapshot.key;
+    l("childKey: ", childKey);
 
     // render user inputted data and new data
     var newRow = $("<tr>").append(
@@ -105,7 +104,19 @@ dataRef.ref().on("child_added", function(childSnapshot) {
         $("<td>").text(freq),
         $("<td>").text(nextArrival),
         $("<td>").text(tMinTillTrain),
+        $("<td><button class='remove delete-btn' data-key='" + childKey + "'>X</button></td>")
     );
+
+    // function for Deleting row
+    $(document).on("click", ".remove", function(){
+        // key reference for row in question
+        keyRef = $(this).attr("data-key");
+        // call remove method on key ref child
+        db.ref().child(keyRef).remove();
+        // reload the window to update page
+        window.location.reload();
+    });
+
     // append newRow to the DOM
     $('#train-table > tbody').append(newRow);
 });
