@@ -5,8 +5,6 @@ Enter a train name, an arrival time and frequency of arrival.
 
 Click Submit and the webpage will provide a confirmation window and return information on the next train arrival.
 
-![alt text](https://media.giphy.com/media/4MWlwwqIRWRJnMhCgi/giphy.gif)
-
 Built with: HTML, CSS, Skeleton CSS, Google Firebase, jQuery, & moment.js
 
 Background image provided by goodstock.photos:
